@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const Footer = () => {
-    return <h1>Footer</h1>
+const Footer = (props) => {
+
+    const {company, email} = props;
+
+    return (
+        <h5>Powered By {company} | Contract By Email : {email}</h5>
+    )
 }
 
 export default Footer;
