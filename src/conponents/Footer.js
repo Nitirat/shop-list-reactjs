@@ -2,10 +2,18 @@ import React from 'react';
 
 const Footer = (props) => {
 
-    const {company, email} = props;
+    const { company, email } = props;
 
     return (
-        <h5>Powered By {company} | Contract By Email : {email}</h5>
+        <div className="container-fluid">
+            <hr />
+            <div className="text-center text-uppercase">
+                <small>
+                    <span className="text-danger">Powered By {company}</span> | <span className="text-muted">Contract By Email : {email}></span>
+                </small>
+            </div>
+
+        </div>
     )
 }
 
