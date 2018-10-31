@@ -3,13 +3,9 @@ import ProdcutItem from "./ProductItem";
 
 class ProductList extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     showProducts() {
         return this.props.products && this.props.products.map(product => (
-            <ProdcutItem key={product.productId} {...product} />
+            <ProdcutItem key={product.productId} product={product} onAddOrder={this.props.onAddOrder}/>
         ));
     }
 
