@@ -6,9 +6,10 @@ class Calculator extends Component {
         if (!orders || orders.length == 0) {
             return <li className="text-right text-success">Not have order</li>
         } else {
-            return orders.map(order => {
+            return orders.map((order, i) => {
+                console.log(i);
                 return (
-                    <li className="text-right text-success">
+                    <li className="text-right text-success" key={i}>
                         {order.product.productName} x {order.quantity} = {order.quantity * order.product.price}
                         <button className="btn btn-light btn-sm" onClick={() => this.props.onDeleteOrder(order.product)}>x</button>
                     </li>
