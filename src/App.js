@@ -24,6 +24,12 @@ class App extends Component {
         { productId: 6, productName: "กาแฟ เฮลตี้ฟู้ด", price: "140", thumbnail: "/images/product/6.jpg" }
       ]
     })
+
+    // fetch("http://127.0.0.1:3001/products", {method : "GET"})
+    //   .then(promis => promis.json())
+    //   .then(res => {
+    //     this.setState({products : res});
+    //   });
   }
 
   render() {
