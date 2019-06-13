@@ -30,8 +30,8 @@ class Calculator extends Component {
                     {this.showOrder(orders)}
                 </ul>
                 <hr />
-                <button className="btn btn-block btn-danger">Submit</button>
-                <button className="btn btn-block btn-secondary">Cnacel</button>
+                <button className="btn btn-block btn-danger" onClick={() => this.props.onSubmitOrder()}>Submit</button>
+                <button className="btn btn-block btn-secondary" onClick={() => this.props.onCancelOrder()}>Cnacel</button>
             </div>
         )
     }
