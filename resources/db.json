@@ -99,6 +99,40 @@
         }
       ],
       "id": 5
+    },
+    {
+      "orderedDate": "2019-06-13T08:52:26.631Z",
+      "totalPrice": 410,
+      "orders": [
+        {
+          "product": {
+            "productId": "P001",
+            "productName": "สลัดผัก",
+            "price": "120",
+            "thumbnail": "/images/product/1.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "productId": "P002",
+            "productName": "ไก่ทอด",
+            "price": "90",
+            "thumbnail": "/images/product/2.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "productId": "P003",
+            "productName": "บิงซู",
+            "price": "200",
+            "thumbnail": "/images/product/3.jpg"
+          },
+          "quantity": 1
+        }
+      ],
+      "id": 6
     }
   ]
 }
