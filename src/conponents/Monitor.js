@@ -13,7 +13,7 @@ class Monitor extends Component {
     }
 
     addOrder(product) {
-        let findOrder = this.state.orders.find(order => order.product.productId == product.productId);
+        let findOrder = this.state.orders.find(order => order.product.id == product.id);
         if (findOrder) {
             findOrder.quantity++;
         } else {
@@ -24,8 +24,8 @@ class Monitor extends Component {
     }
 
     delOrder(product) {
-        let findOrder = this.state.orders.find(order => order.product.productId == product.productId);
-        let resultOrder = this.state.orders.filter(order => order.product.productId != product.productId);
+        let findOrder = this.state.orders.find(order => order.product.id == product.id);
+        let resultOrder = this.state.orders.filter(order => order.product.id != product.id);
         const totalPrice = this.state.totalPrice - (findOrder.quantity * parseInt(findOrder.product.price));
         this.setState({ totalPrice: totalPrice, orders: resultOrder, confirm : false, msg : "Done" });
     }

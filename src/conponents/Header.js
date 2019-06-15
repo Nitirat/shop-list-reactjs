@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
 
@@ -36,6 +37,16 @@ class Header extends Component {
                         <span className="text-muted">
                             {this.state.date.toLocaleTimeString()}
                         </span>
+
+                        <ul className="list-inline">
+                            <li className="list-inline-item"><Link to="/">Home</Link></li>
+                            <li className="list-inline-item">|</li>
+                            <li className="list-inline-item"><Link to="/orders">Orders</Link></li>
+                            <li className="list-inline-item">|</li>
+                            <li className="list-inline-item"><Link to="/products">Products</Link></li>
+                            <li className="list-inline-item">|</li>
+                            <li className="list-inline-item"><Link to="/about">About</Link></li>
+                        </ul>
                     </div>
                 </div>
                 <hr />
