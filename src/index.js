@@ -6,9 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 import { Provider } from 'react-redux';
-import createStore from 'redux';
+import createStore, { applyMiddleware } from 'redux';
 import reducers from './reducers';
 
-const store = createStore(reducers, {});
+import reduxThunk from 'redux-thunk';
 
-ReactDOM.render( <Provider store={store}> <App /> </Provider>, document.getElementById('root'));
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
+ReactDOM.render(<Provider store={store}> <App /> </Provider>, document.getElementById('root'));
