@@ -2,31 +2,25 @@ import React, { Component } from 'react';
 
 import Header from "../../conponents/Header";
 import Footer from "../../conponents/Footer";
-import Axios from "axios";
+import { connect } from 'react-redux';
+import { ordersFetch, orderDelete } from '../../actions';
 
-class Orders extends Component {
+class Order extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {order:null}
     }
 
-    componentDidMount(){
-        this.getOrders();
+    componentDidMount() {
+        this.props.ordersFetch();
     }
 
-    getOrders = async () => {
-        let data = await Axios.get("http://127.0.0.1:3001/orders");
-        this.setState({order : data.data});
+    deleteOrder = (order) => { 
+        this.props.orderDelete(order.id);
     }
 
-    deleteOrder = async (order) => {
-        let data = await Axios.delete("http://127.0.0.1:3001/orders/"+ order.id);
-        this.getOrders();
-    }
-
-    showOrders(){
-        return this.state.order && this.state.order.map(order => {
+    showOrders() {
+        return this.props.orders && this.props.orders.map(order => {
             const date = new Date(order.orderedDate);
             return (
                 <div key={order.id} className="col-md-3">
@@ -37,7 +31,7 @@ class Orders extends Component {
                     <h5>Date : {date.toLocaleDateString()} {date.toLocaleTimeString()}</h5>
                     <ul>
                         {order.orders && order.orders.map(record => {
-                            return(
+                            return (
                                 <li key={record.product.id}>
                                     {record.product.productName} x {record.quantity} = {record.product.price * record.quantity}
                                 </li>
@@ -52,16 +46,16 @@ class Orders extends Component {
         })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <Header />
-                    <div className="container-fluid">
-                        <h1>Orders</h1>
-                        <div className="row">
-                            {this.showOrders()}
-                        </div>
+                <div className="container-fluid">
+                    <h1>Orders</h1>
+                    <div className="row">
+                        {this.showOrders()}
                     </div>
+                </div>
                 <Footer company="NITIRAT" email="nitirat.wo@gmail.com" />
             </div>
         );
@@ -69,4 +63,8 @@ class Orders extends Component {
 
 }
 
-export default Orders;
+function mapStateToProps({ orders }) {
+    return { orders };
+}
+
+export default connect(mapStateToProps, { ordersFetch, orderDelete })(Order);
