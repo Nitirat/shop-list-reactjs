@@ -9,7 +9,7 @@ const Footer = (props) => {
             <hr />
             <div className="text-center text-uppercase">
                 <small>
-                    <span className="text-danger">Powered By {company}</span> | <span className="text-muted">Contract By Email : {email}></span>
+                    <span className="text-danger">Powered By {company}</span> | <span className="text-muted">Contract By Email : {email}</span>
                 </small>
             </div>
 
