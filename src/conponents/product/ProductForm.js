@@ -31,8 +31,11 @@ const validate = values => {
     console.log(values);
     const errors = {};
     productFormField.forEach(({name, required}) => {
-        
+        if (!values[name] && required) {
+            errors[name] = 'ใส่ข้อมูล';
+          } 
     });
+    return errors;
 }
 
 export default reduxForm({ form: "ProductForm", validate })(ProductForm);
