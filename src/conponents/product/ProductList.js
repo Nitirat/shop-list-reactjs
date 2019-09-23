@@ -12,7 +12,9 @@ class ProductList extends Component {
     render() {
         return (
             <div className="row">
-                {this.showProducts()}
+                {this.props.products && Array.isArray(this.props.products) && (
+                    this.showProducts()
+                )}
             </div>
         )
     }

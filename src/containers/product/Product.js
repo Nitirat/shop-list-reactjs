@@ -38,7 +38,9 @@ class Products extends Component {
                             <button className="btn btn-success float-right" onClick={() => this.props.history.push('products/add')}>Add</button>
                         </div>
                     </div>
-                    <ProductList products={this.props.products} onDelete={this.deleteProduct} onEditProduct={this.editProduct} />
+                    {this.props.products && Array.isArray(this.props.products) && (
+                        <ProductList products={this.props.products} onDelete={this.deleteProduct} onEditProduct={this.editProduct} />
+                    )}
                 </div>
                 <Footer company="NITIRAT" email="nitirat.wo@gmail.com" />
             </div>
