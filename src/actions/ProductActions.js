@@ -3,7 +3,7 @@ import { PRODUCTS_FETCH, PRODUCT_CREATE, PRODUCT_FETCH, PRODUCT_UPDATE } from '.
 
 export const productCreate = (values) => {
     return dispatch => {
-        Axios.post("http://127.0.0.1:3001/products", values).then(
+        Axios.post(process.env.REACT_APP_API_URL+"/products", values).then(
             res => {
                 dispatch({ type: PRODUCT_CREATE, payload: res.data });
             }
@@ -13,7 +13,7 @@ export const productCreate = (values) => {
 
 export const productUpdate = (id, values) => {
     return dispatch => {
-        Axios.put("http://127.0.0.1:3001/products/"+id, values).then(
+        Axios.put(process.env.REACT_APP_API_URL+"/products/"+id, values).then(
             res => {
                 dispatch({ type: PRODUCT_UPDATE, payload: res.data });
             }
@@ -23,7 +23,7 @@ export const productUpdate = (id, values) => {
 
 export const productFetch = (id) => {
     return dispatch => {
-        Axios.get("http://127.0.0.1:3001/products/" + id).then(
+        Axios.get(process.env.REACT_APP_API_URL+"/products/" + id).then(
             res => {
                 dispatch({ type: PRODUCT_FETCH, payload: res.data });
             }
@@ -33,7 +33,7 @@ export const productFetch = (id) => {
 
 export const productsFetch = () => {
     return dispatch => {
-        Axios.get("http://127.0.0.1:3001/products").then(
+        Axios.get(process.env.REACT_APP_API_URL+"/products").then(
             res => {
                 dispatch({ type: PRODUCTS_FETCH, payload: res.data });
             }
@@ -43,8 +43,8 @@ export const productsFetch = () => {
 
 export const productDelete = (id) => {
     return dispatch => {
-        Axios.delete("http://127.0.0.1:3001/products/" + id).then(res => {
-            Axios.get("http://127.0.0.1:3001/products").then(res => {
+        Axios.delete(process.env.REACT_APP_API_URL+"/products/" + id).then(res => {
+            Axios.get(process.env.REACT_APP_API_URL+"/products").then(res => {
                 dispatch({ type: PRODUCTS_FETCH, payload: res.data });
             }
             )
