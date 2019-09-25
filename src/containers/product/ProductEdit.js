@@ -23,6 +23,13 @@ class ProductEdit extends Component {
                     {match.path.indexOf('add') > 0 && (
                         <div>
                             <h2>Add</h2>
+                            {
+                                products.save && (
+                                    <div className="alert alert-secondary title">
+                                        {products.msg}
+                                    </div>
+                                )
+                            }
                             <ProductForm onProductSubmit={() => productCreate(formValues)} />
                         </div>
 
@@ -30,6 +37,13 @@ class ProductEdit extends Component {
                     {match.path.indexOf('edit') > 0 && (
                         <div>
                             <h2>Edit</h2>
+                            {
+                                products.save && (
+                                    <div className="alert alert-secondary title">
+                                        {products.msg}
+                                    </div>
+                                )
+                            }
                             <ProductForm onProductSubmit={() => productUpdate(products.id, formValues)} />
                         </div>
                     )}
